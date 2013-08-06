@@ -13,7 +13,7 @@ module FnordMetric::GaugeCalculations
   }
 
   def ticks_in(r, _tick=tick, overflow=0)
-    (((r.last-r.first)/_tick.to_f).ceil+1+overflow).times.map{ |n| tick_at(r.first + _tick*(n-1), _tick) }
+    (((r.last-r.first)/_tick.to_f).ceil+1+overflow).times.map{ |n| tick_at(r.first + _tick*(n), _tick) }
   end
 
   def values_in(range)
