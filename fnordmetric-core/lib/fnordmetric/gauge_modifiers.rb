@@ -93,7 +93,7 @@ module FnordMetric::GaugeModifiers
     end
 
     ctx.redis_exec(:hincrby, retention_key(at, series_name), "#{tick_at(at)}-#{part}", value).callback do 
-      ctx.redis_exec :expire,  retention_key(at, series_name), retention
+      ctx.redis_exec :expire,  retention_key(at, series_name), FnordMetric::DEFAULT_OPTIONS[:event_data_ttl] #retention
     end
   end
   
