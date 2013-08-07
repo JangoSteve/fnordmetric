@@ -31,8 +31,8 @@ class FnordMetric::TimeseriesWidget < FnordMetric::Widget
     super.merge(
       :series => series,
       :gauges => gauges.map(&:name),
-      :start_timestamp => ticks.first,
-      :end_timestamp => ticks.last,
+      :start_timestamp => ticks.min,
+      :end_timestamp => ticks.max,
       :xticks => (@opts[:xticks] || 30),
       :autoupdate => (@opts[:autoupdate] || 60),
       :include_current => !!@opts[:include_current],
